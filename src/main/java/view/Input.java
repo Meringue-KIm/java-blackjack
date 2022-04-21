@@ -11,7 +11,7 @@ public class Input {
         return SCANNER.nextLine();
     }
 
-    public static String isCardAdd() {
+    public static String inputIsCardAdd() {
         System.out.println(" 는 한장의 카드를 더 받겠습니까? (예는 y, 아니오는 n)");
         return SCANNER.nextLine();
     }
