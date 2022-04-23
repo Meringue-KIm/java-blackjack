@@ -9,12 +9,9 @@ public class Player {
 
     }
 
-
     private String validate(String userName) {
-
         return userName;
     }
-
 
     public String getUserName() {
         return this.userName;

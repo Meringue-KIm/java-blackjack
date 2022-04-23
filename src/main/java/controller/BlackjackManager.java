@@ -3,5 +3,8 @@ package controller;
 public class BlackjackManager {
 
 
-    public void
+    public void Proceed() {
+
+    }
+
 }
