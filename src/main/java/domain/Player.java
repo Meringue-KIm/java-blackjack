@@ -2,7 +2,7 @@ package domain;
 
 public class Player {
 
-    private String userName;
+    private final String userName;
 
     public Player(String userName) {
         this.userName = validate(userName);
