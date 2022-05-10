@@ -6,7 +6,6 @@ public class Player {
 
     public Player(String userName) {
         this.userName = validate(userName);
-
     }
 
     private String validate(String userName) {
@@ -16,4 +15,5 @@ public class Player {
     public String getUserName() {
         return this.userName;
     }
+
 }
