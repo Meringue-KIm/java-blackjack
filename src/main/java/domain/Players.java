@@ -1,17 +1,17 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Players {
 
-    private List<Player> players;
+    private final List<Player> players;
 
-    public Players() {
-        this.players = new ArrayList<>();
+    public Players(List<Player> players) {
+        this.players = players;
     }
 
     public List<Player> getPlayers() {
         return this.players;
     }
+
 }
