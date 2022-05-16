@@ -19,7 +19,6 @@ public class BlackjackManager {
         }
         Players players = new Players(playerList);
 
-
     }
 
     private List<String> divideName(String name) {
