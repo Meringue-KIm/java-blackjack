@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class FactoryCard {
+public class CardFactory {
 
     private static final List<String> CARD_NUMBER = new ArrayList<>();
 
@@ -30,7 +30,7 @@ public class FactoryCard {
         List<CardKind> cardKinds = Arrays.asList(CardKind.values());
         sb.append(cardNumber);
         Collections.shuffle(cardKinds);
-        sb.append(cardKinds.get(0));
+        sb.append(cardKinds.get(0).getKind());
         return sb.toString();
     }
 

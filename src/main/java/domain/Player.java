@@ -8,6 +8,11 @@ public class Player {
     private final String userName;
     private final List<String> userCard;
 
+    public Player() {
+        this.userName = "딜러";
+        this.userCard = new ArrayList<>();
+    }
+
     public Player(String userName) {
         this.userName = validate(userName);
         this.userCard = new ArrayList<>();
@@ -23,6 +28,10 @@ public class Player {
 
     public String getUserName() {
         return this.userName;
+    }
+
+    public List<String> getUserCard() {
+        return this.userCard;
     }
 
 }
