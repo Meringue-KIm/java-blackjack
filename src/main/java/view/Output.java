@@ -18,12 +18,12 @@ public class Output {
         System.out.println("에게 2장을 나눠줬습니다.");
     }
 
-    public static void showDealerAndPlayersCard(Dealer dealer, Players players) {
+    public static void printDealerAndPlayersCard(Dealer dealer, Players players) {
         System.out.println(dealer.getPlayer().getUserName() + ": " + dealer.getPlayer().getUserCard().get(1));
         for (Player player : players.getPlayers()) {
             System.out.println(player.getUserName() + ": " + player.getUserCard()
                     .toString().replace("[", "").replace("]", ""));
         }
-
     }
+
 }

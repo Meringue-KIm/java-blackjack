@@ -20,7 +20,7 @@ public class BlackjackManager {
         Dealer dealer = new Dealer(new Player());
         giveDefaultCardCount(dealer, players);
         Output.printProgressMsg(players);
-        Output.showDealerAndPlayersCard(dealer, players);
+        Output.printDealerAndPlayersCard(dealer, players);
 
 
     }
@@ -46,4 +46,8 @@ public class BlackjackManager {
         }
     }
 
+    private boolean isTakeCard(Players players) {
+        
+        Input.inputTakeCard()
+    }
 }
