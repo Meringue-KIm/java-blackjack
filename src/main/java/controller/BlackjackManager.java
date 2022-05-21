@@ -47,7 +47,7 @@ public class BlackjackManager {
     }
 
     private boolean isTakeCard(Players players) {
-        
+
         Input.inputTakeCard()
     }
 }
