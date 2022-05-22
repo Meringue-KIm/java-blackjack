@@ -22,7 +22,6 @@ public class BlackjackManager {
         Output.printProgressMsg(players);
         Output.printDealerAndPlayersCard(dealer, players);
 
-
     }
 
     private Players createPlayerList(String[] names) {
