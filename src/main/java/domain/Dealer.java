@@ -12,5 +12,13 @@ public class Dealer {
         return player;
     }
 
+    public boolean isDealerCardsValueSum() {
+        player.calculateCardsValueSum();
+        if (player.getCardSumValue() <= 16) {
+            player.addUserCard(CardFactory.createCard(CardFactory.createRandomCardNumber()));
+            return true;
+        }
+        return false;
+    }
 
 }

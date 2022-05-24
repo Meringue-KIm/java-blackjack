@@ -1,6 +1,6 @@
 package controller;
 
-import domain.CardFactory;
+import domain.BlackJackHost;
 import domain.Dealer;
 import domain.Player;
 import domain.Players;
@@ -15,13 +15,16 @@ public class BlackjackManager {
     private static final String DELIMITER = ",";
 
     public void Proceed() {
-        String name = Input.inputPlayerName();
-        Players players = createPlayerList(name.split(DELIMITER));
+        String[] names = Input.inputPlayerName().split(DELIMITER);
+        Players players = createPlayerList(names);
         Dealer dealer = new Dealer(new Player());
-        giveDefaultCardCount(dealer, players);
+        players.giveDefaultCardCount(dealer);
         Output.printProgressMsg(players);
         Output.printDealerAndPlayersCard(dealer, players);
-
+        BlackJackHost.givePlayerCard(players, dealer);
+        List<String> blackjackFinalResult = players.findWinner(dealer, players);
+        Output.printResult(dealer, players);
+        Output.printFinalResult(dealer, players, blackjackFinalResult);
     }
 
     private Players createPlayerList(String[] names) {
@@ -32,21 +35,4 @@ public class BlackjackManager {
         return new Players(players);
     }
 
-    private void giveDefaultCardCount(Dealer dealer, Players players) {
-        for (int i = 0; i < 2; i++) {
-            dealer.getPlayer().addUserCard(CardFactory.createCard(CardFactory.createRandomCardNumber()));
-            giveDefaultPlayerCard(players);
-        }
-    }
-
-    private void giveDefaultPlayerCard(Players players) {
-        for (Player player : players.getPlayers()) {
-            player.addUserCard(CardFactory.createCard(CardFactory.createRandomCardNumber()));
-        }
-    }
-
-    private boolean isTakeCard(Players players) {
-
-        Input.inputTakeCard()
-    }
 }
