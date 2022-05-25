@@ -24,6 +24,9 @@ public class BlackjackManager {
         BlackJackHost.givePlayerCard(players, dealer);
         List<String> blackjackFinalResult = players.findWinner(dealer, players);
         Output.printResult(dealer, players);
+        //21넘으면 다이 메세지주기
+
+
         Output.printFinalResult(dealer, players, blackjackFinalResult);
     }
 

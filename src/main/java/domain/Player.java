@@ -5,36 +5,50 @@ import java.util.List;
 
 public class Player {
 
+    public static final String DEALER_NAME = "딜러";
+    public static final String SPECIAL_CARD = "A스페이드";
+    public static final int DEFAULT_VALUE = 0;
+    public static final int START_INDEX = 0;
+    public static final int END_INDEX = 2;
+
     private final String userName;
     private final List<String> userCard;
     private int cardSumValue;
 
     public Player() {
-        this.userName = "딜러";
+        this.userName = DEALER_NAME;
         this.userCard = new ArrayList<>();
-        this.cardSumValue = 0;
+        this.cardSumValue = DEFAULT_VALUE;
     }
 
     public Player(String userName) {
         this.userName = validate(userName);
         this.userCard = new ArrayList<>();
-        this.cardSumValue = 0;
+        this.cardSumValue = DEFAULT_VALUE;
     }
 
     public void calculateCardsValueSum() {
+        int sum = DEFAULT_VALUE;
         for (String card : this.userCard) {
-            this.cardSumValue += calculateCardValueSum(card);
+            sum += searchCardValue(card);
         }
+        this.cardSumValue = sum;
     }
 
-    public int calculateCardValueSum(String card) {
-        if (card.equals("A스페이드")) {
+    public int searchCardValue(String card) {
+        if (card.equals(SPECIAL_CARD)) {
             return isCardValueSumByValueChoice();
         }
-        String cardNumber = String.valueOf(card.charAt(0));
-        if (cardNumber.equals("K") || cardNumber.equals("J") || cardNumber.equals("Q")) {
+        String cardNumber = card.substring(START_INDEX, END_INDEX);
+        if (cardNumber.equals("10")) {
             return 10;
-        } else if (cardNumber.equals("A")) {
+        }
+        cardNumber = String.valueOf(card.charAt(0));
+        if (cardNumber.equals(CardCharNumber.KING.getCardCharNumber())
+                || cardNumber.equals(CardCharNumber.JACK.getCardCharNumber())
+                || cardNumber.equals(CardCharNumber.QUEEN.getCardCharNumber())) {
+            return 10;
+        } else if (cardNumber.equals(CardCharNumber.FIRST.getCardCharNumber())) {
             return 1;
         }
         return Integer.parseInt(cardNumber);

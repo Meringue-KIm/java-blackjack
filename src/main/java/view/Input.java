@@ -16,5 +16,4 @@ public class Input {
         return SCANNER.nextLine();
     }
 
-
 }

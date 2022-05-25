@@ -57,11 +57,11 @@ public class Players {
 
     private void findDealerFinalResult(String playersFinalResults, List<Integer> dealerResult) {
         if (playersFinalResults.equals("승")) {
-            dealerResult.add(2, +1);
+            dealerResult.add(2, dealerResult.get(2) + 1);
         } else if (playersFinalResults.equals("패")) {
-            dealerResult.add(0, +1);
+            dealerResult.add(0, dealerResult.get(0) + 1);
         } else {
-            dealerResult.add(1, +1);
+            dealerResult.add(1, dealerResult.get(1) + 1);
         }
     }
 

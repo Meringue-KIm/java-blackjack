@@ -33,7 +33,10 @@ public class BlackJackHost {
     }
 
     public static String compareDealerAndPlayers(Dealer dealer, Player player) {
-        if (dealer.getPlayer().getCardSumValue() < player.getCardSumValue()) {
+        if (player.getCardSumValue() > 21) {
+            return "패";
+        }
+        if (dealer.getPlayer().getCardSumValue() < player.getCardSumValue() || dealer.getPlayer().getCardSumValue() > 21) {
             return "승";
         } else if (dealer.getPlayer().getCardSumValue() > player.getCardSumValue()) {
             return "패";

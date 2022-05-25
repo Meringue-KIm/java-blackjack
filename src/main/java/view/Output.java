@@ -12,6 +12,7 @@ public class Output {
     public static void printDealerCardSumValueMsg() {
         System.out.println();
         System.out.println("딜러는 16이하라 한 장의 카드를 더 받았습니다.");
+        System.out.println();
     }
 
     public static void printProgressMsg(Players players) {
@@ -25,7 +26,7 @@ public class Output {
     }
 
     public static void printDealerAndPlayersCard(Dealer dealer, Players players) {
-        System.out.println(dealer.getPlayer().getUserName() + ": " + dealer.getPlayer().getUserCard().get(1));
+        System.out.println(dealer.getPlayer().getUserName() + ": " + dealer.getPlayer().getUserCard().get(0));
         for (Player player : players.getPlayers()) {
             System.out.println(player.getUserName() + "카드: " + player.getUserCard()
                     .toString().replace("[", "").replace("]", ""));
@@ -38,13 +39,16 @@ public class Output {
     }
 
     public static void printResult(Dealer dealer, Players players) {
-        System.out.println(dealer.getPlayer().getUserName() + "카드: " + dealer.getPlayer().getUserCard().get(1)
-                + " 결과:" + dealer.getPlayer().getCardSumValue());
+        System.out.print(dealer.getPlayer().getUserName() + "카드: ");
+        System.out.print(String.join(",", dealer.getPlayer().getUserCard()));
+        System.out.println(" 결과:" + dealer.getPlayer().getCardSumValue());
         for (Player player : players.getPlayers()) {
             System.out.println(player.getUserName() + ": " + player.getUserCard()
                     .toString().replace("[", "").replace("]", "")
                     + " 결과:" + player.getCardSumValue());
         }
+        System.out.println();
+        System.out.println("결과가 21이 초과해도 패배입니다.");
         System.out.println();
     }
 
