@@ -3,13 +3,16 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Player {
 
-    public static final String DEALER_NAME = "딜러";
-    public static final String SPECIAL_CARD = "A스페이드";
-    public static final int DEFAULT_VALUE = 0;
-    public static final int START_INDEX = 0;
-    public static final int END_INDEX = 2;
+    private static final String BLANK_SPACE = " ";
+    private static final int MAX_NAME_LENGTH = 20;
+    private static final String DEALER_NAME = "딜러";
+    private static final String SPECIAL_CARD = "A스페이드";
+    private static final int DEFAULT_VALUE = 0;
+    private static final int START_INDEX = 0;
+    private static final int END_INDEX = 2;
 
     private final String userName;
     private final List<String> userCard;
@@ -27,6 +30,14 @@ public class Player {
         this.cardSumValue = DEFAULT_VALUE;
     }
 
+    private String validate(String userName) {
+        validateNameContainsNumber(userName);
+        validateNameLength(userName);
+        validateNameContainsBlank(userName);
+        validateEmptyName(userName);
+        return userName;
+    }
+
     public void calculateCardsValueSum() {
         int sum = DEFAULT_VALUE;
         for (String card : this.userCard) {
@@ -35,7 +46,7 @@ public class Player {
         this.cardSumValue = sum;
     }
 
-    public int searchCardValue(String card) {
+    private int searchCardValue(String card) {
         if (card.equals(SPECIAL_CARD)) {
             return isCardValueSumByValueChoice();
         }
@@ -61,8 +72,28 @@ public class Player {
         return 11;
     }
 
-    private String validate(String userName) {
-        return userName;
+    private void validateNameContainsNumber(String name) {
+        if (name.matches(".*\\d.*")) {
+            throw new IllegalArgumentException("이름의 숫자가 포함되어 있습니다");
+        }
+    }
+
+    private void validateNameLength(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("이름은 20글자를 넘을 수 없습니다");
+        }
+    }
+
+    private void validateNameContainsBlank(String name) {
+        if (name.contains(BLANK_SPACE)) {
+            throw new IllegalArgumentException("이름은 공백을 포함할 수 없습니다");
+        }
+    }
+
+    private void validateEmptyName(String name) {
+        if (name.length() == 0) {
+            throw new IllegalArgumentException("비어 있는 이름을 입력할 수 없습니다");
+        }
     }
 
     public void addUserCard(String card) {

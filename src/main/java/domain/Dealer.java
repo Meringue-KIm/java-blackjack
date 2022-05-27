@@ -8,10 +8,6 @@ public class Dealer {
         this.player = player;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
     public boolean isDealerCardsValueSum() {
         player.calculateCardsValueSum();
         if (player.getCardSumValue() <= 16) {
@@ -20,6 +16,10 @@ public class Dealer {
             return true;
         }
         return false;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
 }
