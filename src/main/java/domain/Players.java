@@ -22,7 +22,8 @@ public class Players {
     }
 
     private void validatePlayerTakeCardResult(String isPlayerTakeCardResult) {
-        if (!(isPlayerTakeCardResult.equals("y") || isPlayerTakeCardResult.equals("Y") || isPlayerTakeCardResult.equals("n") || isPlayerTakeCardResult.equals("N"))) {
+        if (!(isPlayerTakeCardResult.equals("y") || isPlayerTakeCardResult.equals("Y")
+                || isPlayerTakeCardResult.equals("n") || isPlayerTakeCardResult.equals("N"))) {
             throw new IllegalArgumentException("y,Y 또는 n,N 으로 입력해주세요");
         }
     }
