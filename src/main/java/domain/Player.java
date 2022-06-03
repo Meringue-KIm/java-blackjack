@@ -73,7 +73,7 @@ public class Player {
     }
 
     private void validateNameContainsNumber(String name) {
-        if (name.matches(".*\\d.*")) {
+        if (name.matches(".*\\d.*")) {//이것도 상수처리겠지?;
             throw new IllegalArgumentException("이름의 숫자가 포함되어 있습니다");
         }
     }
